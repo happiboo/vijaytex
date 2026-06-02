@@ -96,12 +96,12 @@ export default function ComparisonTable() {
                 <th></th>
                 <th className={styles.colHeader}>
                   <div className={styles.headerCard}>
-                    Traditional Paper Cone
+                    WITHOUT USING VIJAYTEX
                   </div>
                 </th>
                 <th className={`${styles.colHeader} ${styles.vijaytexHeader}`}>
                   <div className={`${styles.headerCard} ${styles.premiumCard}`}>
-                    VijayTex Protection System
+                    WITH USING VIJAYTEX
                   </div>
                 </th>
               </tr>

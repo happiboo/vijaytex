@@ -16,8 +16,19 @@
   margin-bottom: 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: end;
+  align-items: stretch;
   gap: 2rem;
+}
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.headerRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 .heading {
   font-size: clamp(2.5rem, 5vw, 4rem) !important;
@@ -31,8 +42,8 @@
   color: var(--text-muted);
   line-height: 1.7;
   max-width: 380px;
-  justify-self: end;
-  align-self: end;
+  margin-top: auto;
+  padding-top: 2rem;
 }
 
 /* ── Card Grid ── */

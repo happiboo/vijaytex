@@ -1,19 +1,20 @@
 /* components/Navbar.js */
 'use client';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import styles from '../styles/Navbar.module.css';
 
 const navLinks = [
   { label: 'Products', href: '#products' },
-  { label: 'Why Us',   href: '#why-us'   },
-  { label: 'About',    href: '#about'    },
-  { label: 'Contact',  href: '#contact'  },
+  { label: 'Why Us', href: '#why-us' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [activeLink, setActive]   = useState('');
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeLink, setActive] = useState('');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -40,8 +41,7 @@ export default function Navbar() {
         <div className={styles.inner}>
           {/* Logo */}
           <a href="#hero" className={styles.logo} onClick={() => handleNav('#hero')}>
-            <span className={styles.logoMark}>VT</span>
-            <span className={styles.logoText}>VIJAY TEX</span>
+            <Image src="/logo.png" alt="Vijay Tex Logo" width={240} height={240} style={{ objectFit: 'contain' }} className={styles.logoImage} />
           </a>
 
           {/* Desktop links */}

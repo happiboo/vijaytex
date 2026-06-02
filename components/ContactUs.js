@@ -5,53 +5,17 @@ import { useReveal } from './useReveal';
 import styles from '../styles/ContactUs.module.css';
 
 const contactInfo = {
-  address: 'Coimbatore, Tamil Nadu',
+  address: 'No 10, K.K.Nagar, Kurichi,\nCoimbatore, Tamil Nadu 641021',
   phone:   '+91 98765 — 43210',
-  email:   'Available on request',
+  whatsapp: '919876543210',
+  email:   'info@vijaytex.in',
   hours:   'Mon — Sat · 09:00 to 18:00 IST',
 };
 
-function FloatingField({ id, label, type = 'text', placeholder, name, required, textarea }) {
-  const [focused, setFocused]  = useState(false);
-  const [hasVal, setHasVal]    = useState(false);
-
-  const active = focused || hasVal;
-  const Tag = textarea ? 'textarea' : 'input';
-
-  return (
-    <div className={`${styles.field} ${active ? styles.fieldActive : ''}`}>
-      <label htmlFor={id} className={`${styles.label} ${active ? styles.labelFloat : ''}`}>
-        {label}
-      </label>
-      <Tag
-        id={id}
-        name={name}
-        type={type}
-        className={textarea ? styles.textarea : styles.input}
-        placeholder={active ? placeholder : ''}
-        required={required}
-        rows={textarea ? 5 : undefined}
-        onFocus={() => setFocused(true)}
-        onBlur={(e)  => { setFocused(false); setHasVal(e.target.value.length > 0); }}
-        onChange={(e) => setHasVal(e.target.value.length > 0)}
-      />
-      <div className={styles.fieldLine} />
-    </div>
-  );
-}
-
 export default function ContactUs() {
-  const [submitted, setSubmitted] = useState(false);
   const [phoneRevealed, setPhoneRevealed] = useState(false);
   const leftRef  = useReveal({ threshold: 0.1 });
   const rightRef = useReveal({ threshold: 0.1 });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitted(true);
-    e.target.reset();
-    setTimeout(() => setSubmitted(false), 5000);
-  };
 
   return (
     <section className={styles.section} id="contact">
@@ -93,43 +57,38 @@ export default function ContactUs() {
               <span>{contactInfo.email}</span>
             </div>
             <div className={styles.detail}>
-              <span className={styles.detailIcon}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </span>
-              <span style={{ whiteSpace: 'pre-line' }}>{contactInfo.address}</span>
-            </div>
-            <div className={styles.detail}>
               <span className={styles.detailIcon}>◎</span>
               <span>{contactInfo.hours}</span>
             </div>
           </div>
         </div>
 
-        {/* Right — form */}
+        {/* Right — Address & WhatsApp */}
         <div className={`reveal ${styles.rightCol}`} ref={rightRef}>
-          {submitted ? (
-            <div className={styles.success}>
-              <div className={styles.successIcon}>✓</div>
-              <h3 className={styles.successTitle}>Message Received</h3>
-              <p className={styles.successText}>We'll get back to you within 24 hours.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className={styles.form} noValidate>
-              <div className={styles.row}>
-                <FloatingField id="name"  label="Name" name="name"  placeholder="John Doe" required />
-                <FloatingField id="company" label="Company / Mill" name="company" placeholder="ABC Textiles" />
-              </div>
-              <FloatingField id="message" label="Message"  name="message" placeholder="Your requirements..." required textarea />
-
-              <button type="submit" className={`btn-primary ${styles.submit}`}>
-                Send Enquiry
-                <span>→</span>
-              </button>
-            </form>
-          )}
+          <div className={styles.addressCard}>
+            <h3 className={styles.cardTitle}>Headquarters</h3>
+            <iframe 
+              src="https://maps.google.com/maps?q=Kurichi,%20Coimbatore,%20Tamil%20Nadu&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="350" 
+              style={{ border: 0, borderRadius: '8px', filter: 'grayscale(0.3) contrast(1.1)' }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            
+            <a 
+              href={`https://wa.me/${contactInfo.whatsapp}?text=Hi,%20I%20would%20like%20to%20inquire%20about%20a%20partnership%20with%20Vijay%20Tex.`}
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.whatsappBtn}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+              </svg>
+              Connect on WhatsApp
+            </a>
+          </div>
         </div>
 
       </div>

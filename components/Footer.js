@@ -1,4 +1,5 @@
 /* components/Footer.js */
+import Image from 'next/image';
 import styles from '../styles/Footer.module.css';
 
 const links = [
@@ -19,8 +20,7 @@ export default function Footer() {
         {/* Left — brand */}
         <div className={styles.brand}>
           <div className={styles.logoRow}>
-            <span className={styles.logoMark}>VT</span>
-            <span className={styles.logoText}>VIJAY TEX</span>
+            <Image src="/logo.png" alt="Vijay Tex Logo" width={120} height={120} style={{ objectFit: 'contain' }} className={styles.logoImage} />
           </div>
           <p className={styles.tagline}>
             Precision Engineered Cone Disks<br />

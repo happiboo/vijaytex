@@ -26,9 +26,9 @@
   --font-mono:    'JetBrains Mono', 'Courier New', monospace;
 
   /* Spacing */
-  --section-y: 7rem;
-  --max-w:     1200px;
-  --gutter:    2rem;
+  --section-y: 8rem;
+  --max-w:     1600px;
+  --gutter:    5rem;
 
   /* Motion */
   --ease-expo:     cubic-bezier(0.16, 1, 0.3, 1);

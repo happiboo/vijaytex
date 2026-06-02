@@ -114,12 +114,6 @@ function ProductCard({ product, index }) {
             {product.name.replace('\n', ' ')}
           </h3>
           <p className={styles.hoverDetail}>{product.detail}</p>
-          <div className={styles.hoverCta}>
-            <span>Details</span>
-            <svg width="16" height="16" viewBox="0 0 48 48" fill="currentColor">
-              <path d="M29.3 29.5V45.6H19V29.5H3V19.3H19V3.3H29.3V19.3H45.3V29.5H29.3Z" />
-            </svg>
-          </div>
         </div>
       </div>
     </div>
@@ -134,13 +128,17 @@ export default function ProductLineup() {
       <div className={styles.inner}>
         {/* Header */}
         <div className={`${styles.header} reveal`} ref={headRef}>
-          <div className="pre-label">— Product Line</div>
-          <h2 className={`${styles.heading} display-heading`}>
-            Three Products.<br /><em>Zero Compromise.</em>
-          </h2>
-          <p className={styles.headSub}>
-            Every component  is engineered for precision fit, durability, and mill-floor performance.
-          </p>
+          <div className={styles.headerLeft}>
+            <div className="pre-label">— Product Line</div>
+            <p className={styles.headSub}>
+              Every component is engineered for precision fit, durability, and mill-floor performance.
+            </p>
+          </div>
+          <div className={styles.headerRight}>
+            <h2 className={`${styles.heading} display-heading`}>
+              Three Products.<br /><em>Zero Compromise.</em>
+            </h2>
+          </div>
         </div>
 
         {/* Cards grid */}

@@ -94,7 +94,7 @@ export default function Navbar() {
         </nav>
         <div className={styles.mobileFooter}>
           <span className={styles.mobileFooterText}>Coimbatore, Tamil Nadu</span>
-          <a href="mailto:info@vijaytex.in" className={styles.mobileEmail}>info@vijaytex.in</a>
+          <a href="mailto:vijaytex07@gmail.com" className={styles.mobileEmail}>vijaytex07@gmail.com</a>
         </div>
       </div>
     </>

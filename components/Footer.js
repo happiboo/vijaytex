@@ -37,12 +37,17 @@ export default function Footer() {
 
         {/* Right — contact */}
         <div className={styles.contact}>
-          <a href="mailto:info@vijaytex.in" className={styles.email}>
-            info@vijaytex.in
+          <a href="mailto:vijaytex07@gmail.com" className={styles.email}>
+            vijaytex07@gmail.com
           </a>
-          <a href="tel:+919876543210" className={styles.phone}>
-            +91 98765 43210
-          </a>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <a href="tel:+919443059101" className={styles.phone}>
+              +91 94430 59101
+            </a>
+            <a href="tel:+919442155833" className={styles.phone}>
+              +91 94421 55833
+            </a>
+          </div>
         </div>
       </div>
 

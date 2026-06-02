@@ -1,0 +1,118 @@
+/* styles/CommitmentSection.module.css */
+
+.section {
+  background: var(--bg-deep);
+  border-top: 1px solid var(--border);
+  padding-bottom: 5rem;
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--section-y) var(--gutter);
+}
+
+.header {
+  margin-bottom: 4rem;
+}
+.heading em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 3rem 2rem;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.card:hover {
+  border-color: var(--border-accent);
+  transform: translateY(-5px);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.key {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.id {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.quoteBlock {
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.06) 0%, transparent 100%);
+  border-left: 2px solid var(--accent);
+  padding: 3rem;
+  text-align: center;
+}
+
+.quoteText {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-primary);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.quoteAuthor {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .quoteText {
+    font-size: 1.5rem;
+  }
+}

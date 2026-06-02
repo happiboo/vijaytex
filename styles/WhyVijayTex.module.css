@@ -1,0 +1,187 @@
+/* styles/WhyVijayTex.module.css */
+
+.section {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--section-y) var(--gutter);
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  gap: 4rem;
+}
+
+/* ── Left Column (Sticky Editorial) ── */
+.leftCol {
+  position: sticky;
+  top: 100px; /* Offset for navbar */
+  align-self: start;
+}
+.heading {
+  margin-bottom: 1.5rem;
+}
+.heading em {
+  font-style: italic;
+  color: var(--accent);
+}
+.sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 90%;
+  margin-bottom: 4rem;
+}
+.bigNumber {
+  font-family: var(--font-display);
+  font-size: 8rem;
+  line-height: 0.8;
+  color: var(--text-primary);
+  opacity: 0.15; /* increased to make it pop more */
+  margin-bottom: 1rem;
+  text-shadow: 2px 4px 12px rgba(0, 0, 0, 0.05);
+}
+.bigNumberLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-primary);
+  opacity: 0.7;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* ── Right Column (Accordion List) ── */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  padding: 1.5rem 0;
+  transition: border-color 0.3s;
+}
+.item:first-child {
+  border-top: 1px solid var(--border);
+}
+.item:hover {
+  border-color: var(--border-accent);
+}
+
+/* Header */
+.itemHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.itemIndex {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  width: 2rem;
+  transition: color 0.3s;
+}
+.open .itemIndex {
+  color: var(--accent);
+}
+.itemTitle {
+  flex: 1;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  transition: color 0.3s;
+}
+.open .itemTitle {
+  color: var(--accent);
+}
+
+/* Plus/Minus Toggle */
+.itemToggle {
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+.toggleH, .toggleV {
+  position: absolute;
+  background: var(--text-primary);
+  transition: all 0.4s var(--ease-expo);
+}
+.toggleH {
+  top: 50%; left: 0;
+  width: 100%; height: 1px;
+  transform: translateY(-50%);
+}
+.toggleV {
+  top: 0; left: 50%;
+  width: 1px; height: 100%;
+  transform: translateX(-50%);
+}
+.toggleVHide {
+  transform: translateX(-50%) rotate(90deg) scaleY(0);
+}
+.open .toggleH {
+  background: var(--accent);
+}
+
+/* Expandable body */
+.itemBody {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.6s var(--ease-expo), padding 0.5s;
+  padding: 0 0 0 3.5rem;
+}
+.itemBodyOpen {
+  max-height: 600px;
+  padding: 0 0 2rem 3.5rem;
+}
+.itemDesc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 520px;
+}
+.itemDesc p {
+  margin-bottom: 1rem;
+}
+.itemDesc p:last-child {
+  margin-bottom: 0;
+}
+.itemDesc ul {
+  margin: 0.5rem 0 1rem 1.5rem;
+  padding: 0;
+  list-style-type: disc;
+}
+.itemDesc li {
+  margin-bottom: 0.4rem;
+}
+.itemDesc strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .leftCol {
+    position: relative;
+    top: 0;
+  }
+  .bigNumber { display: none; }
+  .bigNumberLabel { display: none; }
+}
+
+@media (max-width: 768px) {
+  .itemHeader { gap: 1rem; }
+  .itemBody { padding-left: 2rem; }
+  .itemBodyOpen { padding-left: 2rem; }
+}

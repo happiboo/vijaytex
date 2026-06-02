@@ -1,0 +1,137 @@
+/* styles/BuybackPolicy.module.css */
+
+.section {
+  --accent: #16a34a;
+  --border-accent: rgba(22, 163, 74, 0.22);
+  background: #F0FBF4;
+  border-top: 1px solid rgba(22, 163, 74, 0.18);
+  border-bottom: 1px solid rgba(22, 163, 74, 0.18);
+  overflow: hidden;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle at 100% 0%, rgba(22, 163, 74, 0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 6rem var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* Badge */
+.badge {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.badgeRing {
+  position: absolute;
+  inset: 0;
+  border: 1px dashed var(--border-accent);
+  border-radius: 50%;
+  animation: spin 20s linear infinite;
+  opacity: 0.5;
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.badgeIcon {
+  font-size: 2.5rem;
+  color: var(--accent);
+}
+
+/* Content */
+.content {
+  flex: 1;
+}
+.heading {
+  margin-bottom: 1.5rem;
+}
+.heading em {
+  font-style: italic;
+  color: var(--accent);
+}
+.desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 700px;
+}
+
+/* Pillars */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  border-top: 1px solid var(--border);
+  padding-top: 4rem;
+}
+
+.pillar {
+  padding-right: 2rem;
+}
+
+.pillarHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.pillarStep {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.pillarTitle {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.pillarDesc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner { padding: 4rem var(--gutter); gap: 3rem; }
+  .badge { width: 80px; height: 80px; }
+  .badgeIcon { font-size: 1.5rem; }
+  .pillars {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}

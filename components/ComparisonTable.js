@@ -194,7 +194,7 @@ export default function ComparisonTable() {
             <div className={styles.summaryStat}>
               <div className={styles.statCircle}>
                 <span className={styles.statNumber}>
-                  Up to {animatedSavings.toFixed(1)}%
+                  Up to {Math.round(animatedSavings)}%
                 </span>
                 <span className={styles.statLabel}>Yarn Savings Per Ton</span>
               </div>

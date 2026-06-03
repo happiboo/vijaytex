@@ -1,6 +1,6 @@
 /* components/AboutUs.js */
 'use client';
-import { useReveal, useCounter } from './useReveal';
+import { useReveal, useCounter, splitWords } from './useReveal';
 import styles from '../styles/AboutUs.module.css';
 
 const stats = [
@@ -41,10 +41,10 @@ export default function AboutUs() {
       <div className={styles.inner}>
 
         {/* Left — text */}
-        <div className={`reveal ${styles.textCol}`} ref={leftRef}>
+        <div className={`reveal-left ${styles.textCol}`} ref={leftRef}>
           <div className="pre-label">— About VijayTex</div>
           <h2 className={`display-heading ${styles.heading}`}>
-            Manufactured in Coimbatore.<br /><em className={styles.em}>Trusted Across Globe.</em>
+            {splitWords('Manufactured in Coimbatore.')}<br /><em className={styles.em}>{splitWords('Trusted Across Globe.')}</em>
           </h2>
 
           <p className={styles.para}>
@@ -61,7 +61,7 @@ export default function AboutUs() {
         </div>
 
         {/* Right — stats grid */}
-        <div className={`reveal ${styles.statsCol}`} ref={rightRef}>
+        <div className={`reveal-right ${styles.statsCol}`} ref={rightRef}>
           {/* Blueprint circle visual */}
           <div className={styles.visual} aria-hidden="true">
             <div className={styles.ring1} />

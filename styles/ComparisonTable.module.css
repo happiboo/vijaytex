@@ -204,6 +204,15 @@
   color: #ef4444;
 }
 
+.neutralItem {
+  color: var(--text-primary) !important;
+}
+
+.iconNeutral {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+}
+
 .iconCheck {
   font-family: var(--font-mono);
   color: #10b981;

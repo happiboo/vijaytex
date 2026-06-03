@@ -1,6 +1,6 @@
 /* components/CommitmentSection.js */
 'use client';
-import { useReveal } from './useReveal';
+import { useReveal, splitWords } from './useReveal';
 import styles from '../styles/CommitmentSection.module.css';
 
 const commitments = [
@@ -26,7 +26,7 @@ const commitments = [
 
 export default function CommitmentSection() {
   const headRef = useReveal();
-  const listRef = useReveal();
+  const gridRef = useReveal();
 
   return (
     <section className={styles.section} id="commitment">
@@ -36,13 +36,13 @@ export default function CommitmentSection() {
         <div className={`reveal ${styles.header}`} ref={headRef}>
           <div className="pre-label">— Our Commitment</div>
           <h2 className={`display-heading ${styles.heading}`}>
-            More Than a Supplier.<br /><em className={styles.em}>A Long-Term Mill Supply Partner.</em>
+            {splitWords('More Than a Supplier.')}<br /><em className={styles.em}>{splitWords('A Long-Term Mill Supply Partner.')}</em>
           </h2>
         </div>
 
         {/* Content */}
-        <div className={`reveal ${styles.content}`} ref={listRef}>
-          <div className={styles.grid}>
+        <div className={styles.content}>
+          <div className={`stagger-reveal ${styles.grid}`} ref={gridRef}>
             {commitments.map((c) => (
               <div key={c.id} className={styles.card}>
                 <div className={styles.cardHeader}>

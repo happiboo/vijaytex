@@ -1,7 +1,7 @@
 /* components/WhyVijayTex.js */
 'use client';
 import { useState } from 'react';
-import { useReveal } from './useReveal';
+import { useReveal, splitWords } from './useReveal';
 import styles from '../styles/WhyVijayTex.module.css';
 
 const features = [
@@ -53,10 +53,10 @@ export default function WhyVijayTex() {
       <div className={styles.inner}>
 
         {/* Left col — editorial label + heading */}
-        <div className={styles.leftCol} ref={leftRef}>
+        <div className={`reveal-left ${styles.leftCol}`} ref={leftRef}>
           <div className="pre-label">— Product Advantage</div>
           <h2 className={`display-heading ${styles.heading}`}>
-            Why Our Cone Discs<br /><em className={styles.em}>Outperform the Rest.</em>
+            {splitWords('Why Our Cone Discs')}<br /><em className={styles.em}>{splitWords('Outperform the Rest.')}</em>
           </h2>
           <p className={styles.sub}>
             Engineered for precision fit, zero deviation, and decades of uninterrupted mill performance.
@@ -68,7 +68,7 @@ export default function WhyVijayTex() {
         </div>
 
         {/* Right col — accordion list */}
-        <div className={styles.rightCol} ref={rightRef}>
+        <div className={`stagger-reveal ${styles.rightCol}`} ref={rightRef}>
           {features.map((f) => (
             <div
               key={f.id}

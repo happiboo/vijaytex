@@ -4,9 +4,9 @@ import styles from '../styles/Footer.module.css';
 
 const links = [
   { label: 'Products', href: '#products' },
-  { label: 'Why Us',   href: '#why-us'   },
-  { label: 'About',    href: '#about'    },
-  { label: 'Contact',  href: '#contact'  },
+  { label: 'Why Us', href: '#why-us' },
+  { label: 'About', href: '#about' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Footer() {
@@ -23,8 +23,7 @@ export default function Footer() {
             <Image src="/logo.png" alt="Vijay Tex Logo" width={120} height={120} style={{ objectFit: 'contain' }} className={styles.logoImage} />
           </div>
           <p className={styles.tagline}>
-            Precision Engineered Cone Disks<br />
-            <span className={styles.location}>Coimbatore, Tamil Nadu</span>
+            TRUST - COMMITMENT - RESPONSIBILITY
           </p>
         </div>
 

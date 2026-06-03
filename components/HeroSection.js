@@ -54,10 +54,7 @@ export default function HeroSection() {
         />
         {/* Thin left-edge fade so it blends into text side */}
         <div className={styles.videoEdgeFade} />
-        {/* Corner label */}
-        <div className={styles.videoLabel}>
-          <span className={styles.videoLabelText}>VijayTex Industries · HM-HDPE Cone Disc</span>
-        </div>
+
       </div>
 
       {/* LEFT — Text content inside centered container */}
@@ -68,6 +65,12 @@ export default function HeroSection() {
         <div className={styles.blob} aria-hidden="true" />
 
         <div className={styles.textInner}>
+
+          {/* Top Label */}
+          <div className={styles.topLabel}>
+            <span className={styles.dot} />
+            ESTD. 1996
+          </div>
 
           {/* Brand name */}
           <h1 className={styles.brandName}>

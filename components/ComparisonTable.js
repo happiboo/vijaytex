@@ -15,7 +15,7 @@ export default function ComparisonTable() {
     const end = 5;
     const duration = 2000;
     const increment = end / (duration / 16);
-    
+
     const timer = setInterval(() => {
       start += increment;
       if (start >= end) {
@@ -30,7 +30,7 @@ export default function ComparisonTable() {
 
   const calculateCost = (percentageStr, isSavings) => {
     if (viewMode === 'percentage') return percentageStr;
-    
+
     // Extract average percentage. e.g., "7-10%" -> 8.5%
     const match = percentageStr.match(/(\d+)(?:–|-)(\d+)/);
     let avg = 0;
@@ -40,11 +40,11 @@ export default function ComparisonTable() {
       const singleMatch = percentageStr.match(/(\d+)/);
       if (singleMatch) avg = parseFloat(singleMatch[1]);
     }
-    
+
     // 1 Ton = 1000kg
     const amountInKg = 1000 * (avg / 100);
     const cost = amountInKg * yarnCost;
-    
+
     return `₹${cost.toLocaleString()} ${isSavings ? 'Saved' : 'Extra'}`;
   };
 
@@ -53,34 +53,34 @@ export default function ComparisonTable() {
       <div className={`reveal section-inner ${styles.container}`} ref={ref}>
         <div className={styles.header}>
           <div className="pre-label">— The VijayTex Advantage</div>
-          <h2 className="display-heading">Industry Comparison</h2>
+          <h2 className="display-heading">Why you should use cone inserts</h2>
           <p className={styles.subtitle}>See how VijayTex redefines efficiency across units</p>
         </div>
 
         <div className={styles.controls}>
           <div className={styles.toggleGroup}>
-            <button 
+            <button
               className={`${styles.toggleBtn} ${viewMode === 'percentage' ? styles.active : ''}`}
               onClick={() => setViewMode('percentage')}
             >
               Percentage Savings
             </button>
-            <button 
+            <button
               className={`${styles.toggleBtn} ${viewMode === 'cost' ? styles.active : ''}`}
               onClick={() => setViewMode('cost')}
             >
               Cost Savings
             </button>
           </div>
-          
+
           {viewMode === 'cost' && (
             <div className={styles.inputGroup}>
               <label>Yarn Cost (per kg):</label>
               <div className={styles.inputWrapper}>
                 <span className={styles.currencySymbol}>₹</span>
-                <input 
-                  type="number" 
-                  value={yarnCost} 
+                <input
+                  type="number"
+                  value={yarnCost}
                   onChange={(e) => setYarnCost(Number(e.target.value))}
                   className={styles.costInput}
                 />
@@ -96,12 +96,12 @@ export default function ComparisonTable() {
                 <th></th>
                 <th className={styles.colHeader}>
                   <div className={styles.headerCard}>
-                    WITHOUT USING VIJAYTEX
+                    WITHOUT USING VIJAYTEX (cone disk)
                   </div>
                 </th>
                 <th className={`${styles.colHeader} ${styles.vijaytexHeader}`}>
                   <div className={`${styles.headerCard} ${styles.premiumCard}`}>
-                    WITH USING VIJAYTEX
+                    WITH USING VIJAYTEX (cone disk)
                   </div>
                 </th>
               </tr>
@@ -115,11 +115,16 @@ export default function ComparisonTable() {
                 <td className={styles.cell}>
                   <ul className={styles.featureList}>
                     <li>1 Ton Production</li>
+                    <li className={styles.neutralItem}>
+                      <span className={styles.iconNeutral}>↑</span>
+                      {viewMode === 'percentage' ? 'Requires 7–10% additional yarn (normal)' : calculateCost('7-10%', false)}
+                    </li>
                     <li className={styles.costItem}>
                       <span className={styles.iconUp}>↑</span>
-                      {viewMode === 'percentage' ? 'Requires 7–10% additional yarn' : calculateCost('7-10%', false)}
+                      {viewMode === 'percentage' 
+                        ? '+2-5% extra loss because you did not use cone disk made by VijayTex' 
+                        : `+ ${calculateCost('2-5%', false).replace(' Extra', '')} extra loss because you did not use cone disk made by VijayTex`}
                     </li>
-                    <li className={styles.costItem}><span className={styles.iconUp}>↑</span> Higher yarn wastage</li>
                     <li className={styles.costItem}><span className={styles.iconUp}>↑</span> Increased handling damage</li>
                   </ul>
                 </td>
@@ -128,7 +133,7 @@ export default function ComparisonTable() {
                     <li>1 Ton Production</li>
                     <li className={styles.savingsItem}>
                       <span className={styles.iconCheck}>✓</span>
-                      {viewMode === 'percentage' ? 'Saves 2–5% yarn' : calculateCost('2-5%', true)}
+                      {viewMode === 'percentage' ? 'Saves 2–5% yarn (normal)' : calculateCost('2-5%', true)}
                     </li>
                     <li className={styles.savingsItem}><span className={styles.iconCheck}>✓</span> Reduces extra purchases</li>
                     <li className={styles.savingsItem}><span className={styles.iconCheck}>✓</span> Minimizes transport damage</li>
@@ -145,12 +150,17 @@ export default function ComparisonTable() {
                 <td className={styles.cell}>
                   <ul className={styles.featureList}>
                     <li>1 Ton Production</li>
+                    <li className={styles.neutralItem}>
+                      <span className={styles.iconNeutral}>↑</span>
+                      {viewMode === 'percentage' ? 'Requires 5–10% additional yarn (normal)' : calculateCost('5-10%', false)}
+                    </li>
                     <li className={styles.costItem}>
                       <span className={styles.iconUp}>↑</span>
-                      {viewMode === 'percentage' ? 'Requires 5–10% additional yarn' : calculateCost('5-10%', false)}
+                      {viewMode === 'percentage' 
+                        ? '+1-3% extra loss because you did not use cone disk made by VijayTex' 
+                        : `+ ${calculateCost('1-3%', false).replace(' Extra', '')} extra loss because you did not use cone disk made by VijayTex`}
                     </li>
-                    <li className={styles.costItem}><span className={styles.iconUp}>↑</span> Higher cone damage</li>
-                    <li className={styles.costItem}><span className={styles.iconUp}>↑</span> More yarn loss</li>
+                    <li className={styles.costItem}><span className={styles.iconUp}>↑</span>Increased handling damage</li>
                   </ul>
                 </td>
                 <td className={`${styles.cell} ${styles.vijaytexCell}`}>
@@ -158,7 +168,7 @@ export default function ComparisonTable() {
                     <li>1 Ton Production</li>
                     <li className={styles.savingsItem}>
                       <span className={styles.iconCheck}>✓</span>
-                      {viewMode === 'percentage' ? 'Saves 1–3% yarn' : calculateCost('1-3%', true)}
+                      {viewMode === 'percentage' ? 'Saves 1–3% yarn (normal)' : calculateCost('1-3%', true)}
                     </li>
                     <li className={styles.savingsItem}><span className={styles.iconCheck}>✓</span> Reduces extra purchases</li>
                     <li className={styles.savingsItem}><span className={styles.iconCheck}>✓</span> Better utilization</li>

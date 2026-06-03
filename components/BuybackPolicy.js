@@ -22,13 +22,14 @@ const pillars = [
 ];
 
 export default function BuybackPolicy() {
-  const ref = useReveal({ threshold: 0.15 });
+  const headerRef = useReveal({ threshold: 0.15 });
+  const pillarsRef = useReveal({ threshold: 0.1 });
 
   return (
     <section className={styles.section} id="buyback">
-      <div className={`reveal ${styles.inner}`} ref={ref}>
+      <div className={styles.inner}>
         {/* Top Header */}
-        <div className={styles.header}>
+        <div className={`reveal ${styles.header}`} ref={headerRef}>
           {/* Left badge */}
           <div className={styles.badge}>
             <div className={styles.badgeRing} />
@@ -48,7 +49,7 @@ export default function BuybackPolicy() {
         </div>
 
         {/* Pillars */}
-        <div className={styles.pillars}>
+        <div className={`stagger-reveal ${styles.pillars}`} ref={pillarsRef}>
           {pillars.map((p) => (
             <div key={p.step} className={styles.pillar}>
               <div className={styles.pillarHeader}>

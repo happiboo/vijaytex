@@ -24,7 +24,7 @@ export default function ContactUs() {
       <div className={styles.inner}>
 
         {/* Left — heading */}
-        <div className={`reveal ${styles.leftCol}`} ref={leftRef}>
+        <div className={`reveal-left ${styles.leftCol}`} ref={leftRef}>
           <div className="pre-label">— Get In Touch</div>
           <h2 className={`display-heading ${styles.heading}`}>
             Let's Build a Long-Term Supply<br /><em className={styles.em}>Partnership.</em>
@@ -73,7 +73,7 @@ export default function ContactUs() {
         </div>
 
         {/* Right — Address & WhatsApp */}
-        <div className={`reveal ${styles.rightCol}`} ref={rightRef}>
+        <div className={`reveal-right ${styles.rightCol}`} ref={rightRef}>
           <div className={styles.addressCard}>
             <h3 className={styles.cardTitle}>Headquarters</h3>
             <iframe 
@@ -88,7 +88,7 @@ export default function ContactUs() {
             
             <div style={{ marginTop: '20px' }}>
               <a 
-                href={`https://wa.me/${contactInfo.phones[0].wa}?text=HI%20I%20WOULD%20LIKE%20YOU%20INQUIRE%20ABOUT%20YOUR%20PROBUCT`}
+                href={`https://wa.me/${contactInfo.phones[0].wa}?text=Hi!%20I%20would%20like%20to%20inquire%20about%20your%20products.`}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={styles.whatsappBtn}

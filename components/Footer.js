@@ -1,6 +1,7 @@
 /* components/Footer.js */
 import Image from 'next/image';
 import styles from '../styles/Footer.module.css';
+import MagnetDots from './MagnetDots';
 
 const links = [
   { label: 'products', href: '#products' },
@@ -13,6 +14,9 @@ export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className={styles.footer}>
+      <div className={styles.dotsBackground}>
+        <MagnetDots />
+      </div>
 
       {/* ── Top divider ── */}
       <div className={styles.topLine} />
@@ -70,13 +74,16 @@ export default function Footer() {
 
       </div>
 
+      {/* ── Interactive Playground Spacer ── */}
+      <div className={styles.playgroundSpacer} />
+
       {/* ── Bottom bar ── */}
       <div className={styles.bottom}>
         <span className={styles.copy}>© {year} Vijay Tex. All rights reserved.</span>
         <span className={styles.designer}>
           Designed &amp; Built by{' '}
           <a
-            href="https://www.instagram.com/kavin.xo/"
+            href="https://www.instagram.com/heyy.kavin/"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.designerLink}

@@ -384,6 +384,13 @@
     flex-wrap: wrap;
     gap: 1.5rem;
     padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* Light border for dark background */
+  }
+  .statValue {
+    color: #ffffff; /* White text for contrast */
+  }
+  .statLabel {
+    color: rgba(255, 255, 255, 0.7); /* Light label for contrast */
   }
   .brandLine1, .brandLine2 { font-size: clamp(3rem, 10vw, 5rem); }
   .stat { border-right: none; padding-right: 0; margin-right: 0; }

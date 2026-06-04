@@ -46,7 +46,7 @@ export default function HeroSection() {
         <video
           ref={videoRef}
           className={styles.video}
-          src="/hero-video-pingpong.mp4"
+          src="/hero-pingpong.mp4"
           autoPlay
           muted
           loop

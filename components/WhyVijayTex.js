@@ -27,9 +27,7 @@ const features = [
     id: '03',
     title: 'Constant Innovation Through R&D',
     content: (
-      <>
-        <p>At VijayTex, innovation is at the heart of everything we do. Our dedicated R&D team continuously develops new designs and manufacturing solutions to improve efficiency and reduce costs, allowing us to deliver high-quality components at affordable prices without compromising on quality.</p>
-      </>
+        <p>At VijayTex, innovation is at the heart of everything we do. Our dedicated R&D team continuously develops new designs and manufacturing solutions to improve efficiency and reduce costs. Supported by our fully equipped in-house tool room, we can rapidly develop, test, and refine products, enabling us to deliver high-quality components at affordable prices without compromising on quality.</p>
     ),
   },
   {

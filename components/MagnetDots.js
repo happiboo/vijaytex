@@ -13,27 +13,9 @@ export default function MagnetDots() {
     let width = 0;
     let height = 0;
     let particles = [];
-    const magnetRadius = 200; // Increased radius for a wider interaction area
+    const magnetRadius = 140;
     
     let mouse = { x: -1000, y: -1000 };
-
-    // Create offscreen canvases for circular particles to maximize rendering performance
-    const createCircle = (color, radius) => {
-      const c = document.createElement('canvas');
-      const size = Math.ceil(radius * 2);
-      c.width = size;
-      c.height = size;
-      const cCtx = c.getContext('2d');
-      cCtx.fillStyle = color;
-      cCtx.beginPath();
-      cCtx.arc(radius, radius, radius, 0, Math.PI * 2);
-      cCtx.fill();
-      return { canvas: c, size };
-    };
-    
-    // Light blue/periwinkle shades inspired by the reference image
-    const colors = ['#93c5fd', '#a5b4fc', '#c7d2fe', '#e0e7ff'];
-    const circleCanvases = colors.map(c => createCircle(c, 1.5)); // Radius 1.5 makes very small 3px circles
 
     const init = () => {
       width = canvas.offsetWidth;
@@ -46,20 +28,17 @@ export default function MagnetDots() {
       const tWidth = Math.floor(width);
       const tHeight = Math.floor(height);
       
-      // Offscreen canvas for secret text
       const textCanvas = document.createElement('canvas');
       const tCtx = textCanvas.getContext('2d', { willReadFrequently: true });
       textCanvas.width = tWidth;
       textCanvas.height = tHeight;
       
       tCtx.fillStyle = 'white';
-      // Reduced the font size multiplier and max size to make the text a bit smaller
       const fontSize = Math.min(tWidth * 0.11, 110);
-      // Use the website's display font (Cormorant Garamond, serif) to match the elegant look
       tCtx.font = `500 ${fontSize}px 'Cormorant Garamond', Georgia, serif`;
       tCtx.textAlign = 'center';
       tCtx.textBaseline = 'middle';
-      const textY = tHeight - 190; // Center of the playground spacer
+      const textY = tHeight - 190; 
       tCtx.fillText('VIJAY TEX', tWidth / 2, textY);
       
       let textData = [];
@@ -67,67 +46,86 @@ export default function MagnetDots() {
         textData = tCtx.getImageData(0, 0, tWidth, tHeight).data;
       }
       
-      // Sample text points with extremely high density (spacing 3) for a "full" look
       let textPoints = [];
-      const textSampleSpacing = 3;
+      const textSampleSpacing = 4; // Strict grid for a perforated metal / LED matrix look
       if (textData.length > 0) {
         for (let x = 0; x < tWidth; x += textSampleSpacing) {
           for (let y = 0; y < tHeight; y += textSampleSpacing) {
             const pixelIndex = (y * tWidth + x) * 4;
             if (textData[pixelIndex + 3] > 128) {
-              // Slight random offset to give that organic dotted texture
-              textPoints.push({ 
-                x: x + (Math.random() - 0.5), 
-                y: y + (Math.random() - 0.5) 
-              });
+              // No random offset - we want a highly precise, engineered grid
+              textPoints.push({ x, y });
             }
           }
         }
       }
       
-      particles = textPoints.map(pt => ({
-        x: Math.random() * width, 
-        y: (height - 350) + Math.random() * 350, // Scatter initially in the bottom area
-        tx: pt.x,
-        ty: pt.y,
-        phase: Math.random() * Math.PI * 2,
-        speed: 0.02 + Math.random() * 0.04,
-        colorIdx: Math.floor(Math.random() * colors.length)
-      }));
+      particles = textPoints.map(pt => {
+        const isAccent = Math.random() > 0.85;
+        return {
+          x: pt.x, // Start exactly in position
+          y: pt.y,
+          tx: pt.x,
+          ty: pt.y,
+          baseColor: isAccent ? 'rgba(29, 78, 216, 0.7)' : 'rgba(107, 114, 128, 0.35)', // Muted brand blue or steel gray
+          activeColor: isAccent ? '#60a5fa' : '#ffffff', // Bright blue or crisp white
+          size: 2,
+          isActive: false
+        };
+      });
     };
 
-    let time = 0;
-
     const draw = () => {
-      time += 1;
       ctx.clearRect(0, 0, width, height);
       
       const hovering = mouse.x > -100 && mouse.y > height - 350;
       
-      particles.forEach(p => {
-        // Base target is the text position with a constant ambient jitter
-        let targetX = p.tx + Math.sin(p.phase + time * p.speed) * 1.5;
-        let targetY = p.ty + Math.cos(p.phase + time * p.speed) * 1.5;
+      // We will draw connections between active particles to look like a technical blueprint
+      ctx.lineWidth = 0.5;
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+      ctx.beginPath();
+      
+      particles.forEach((p, i) => {
+        let targetX = p.tx;
+        let targetY = p.ty;
+        p.isActive = false;
         
         let dx = mouse.x - p.x;
         let dy = mouse.y - p.y;
         let dist = Math.sqrt(dx * dx + dy * dy);
         
-        // When hovered, the mouse repels the text particles, creating an interactive hole
+        // Industrial interaction: Dense, heavy magnetic attraction (not a chaotic repel)
         if (hovering && dist < magnetRadius) {
+          p.isActive = true;
           let pull = Math.pow(1 - (dist / magnetRadius), 2);
-          // Significantly increased the multiplier (from 1.5 to 5.0) for a much stronger repel effect
-          targetX -= dx * pull * 5.0; 
-          targetY -= dy * pull * 5.0;
+          // Pulls slightly towards the cursor, representing precision mechanical tension
+          targetX += dx * pull * 0.15; 
+          targetY += dy * pull * 0.15;
         }
         
-        // Ease towards target
-        p.x += (targetX - p.x) * 0.15;
-        p.y += (targetY - p.y) * 0.15;
+        // High tension spring - snaps back into strict grid very fast
+        p.x += (targetX - p.x) * 0.3;
+        p.y += (targetY - p.y) * 0.3;
         
-        const circle = circleCanvases[p.colorIdx];
-        ctx.drawImage(circle.canvas, p.x, p.y);
+        // Draw Blueprint Lines for active nodes
+        if (p.isActive) {
+           for (let j = 1; j < 5; j++) {
+              if (i + j < particles.length) {
+                 let p2 = particles[i + j];
+                 if (Math.abs(p.x - p2.x) < 8 && Math.abs(p.y - p2.y) < 8) {
+                    ctx.moveTo(p.x + p.size/2, p.y + p.size/2);
+                    ctx.lineTo(p2.x + p2.size/2, p2.y + p2.size/2);
+                 }
+              }
+           }
+        }
+        
+        // Draw the particle as a sharp, precise square
+        ctx.fillStyle = p.isActive ? p.activeColor : p.baseColor;
+        ctx.fillRect(p.x, p.y, p.size, p.size);
       });
+      
+      ctx.stroke(); // Render blueprint lines
       
       animationFrameId = requestAnimationFrame(draw);
     };

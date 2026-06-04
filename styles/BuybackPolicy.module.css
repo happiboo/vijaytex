@@ -1,4 +1,4 @@
-/* styles/BuybackPolicy.module.css */
+ /* styles/BuybackPolicy.module.css */
 
 .section {
   --accent: #16a34a;
@@ -127,11 +127,17 @@
 }
 
 @media (max-width: 768px) {
-  .inner { padding: 4rem var(--gutter); gap: 3rem; }
+  /* padding uses updated --gutter (1.25rem) from mobile token override */
+  .inner { padding: 3.5rem var(--gutter); gap: 2.5rem; }
   .badge { width: 80px; height: 80px; }
   .badgeIcon { font-size: 1.5rem; }
   .pillars {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
+    padding-top: 2.5rem;
+  }
+  /* Reduce right padding on pillars since we're single column */
+  .pillar {
+    padding-right: 0;
   }
 }

@@ -301,15 +301,185 @@
   }
 }
 
-@media (max-width: 768px) {
+/* ══════════════════════════════════════════════
+   MOBILE TABLE TRANSFORMATION (≤ 600px)
+   The 800px min-width table is completely unusable
+   on phones. Transform into stacked comparison cards:
+
+   [WEAVING UNITS]
+   ┌─ WITHOUT VIJAYTEX ──────────────┐
+   │  • list items (red)             │
+   └─────────────────────────────────┘
+   ┌─ WITH VIJAYTEX ─────────────────┐
+   │  ✓ list items (green)           │
+   └─────────────────────────────────┘
+   [KNITTING UNITS]
+   ...
+══════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  /* Remove horizontal scroll — no longer needed */
   .tableWrapper {
-    margin-inline: -1rem;
-    padding-inline: 1rem;
+    overflow-x: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+    margin-bottom: 2.5rem;
   }
+
+  /* Lift the 800px min-width constraint */
+  .table {
+    min-width: unset;
+    width: 100%;
+  }
+
+  /* Make every table element behave as a block */
+  .table,
+  .table thead,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  /* Desktop header row is redundant — labels added via ::before below */
+  .table thead {
+    display: none;
+  }
+
+  /* Each row (Weaving / Knitting) becomes a card */
+  .table tbody tr {
+    border: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+    padding: 0;
+  }
+  .table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Row label cell — acts as the card heading */
+  .rowLabel {
+    width: 100%;
+    background: var(--bg-surface);
+    border-bottom: 2px solid var(--border-accent);
+    padding: 0.875rem 1rem;
+  }
+  .labelCard {
+    font-size: 1.25rem;
+  }
+
+  /* Data cells */
+  .table td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .table td:last-child {
+    border-bottom: none;
+  }
+
+  /* Remove the desktop vertical divider between columns */
+  .cell + .cell {
+    border-left: none;
+  }
+
+  /* "WITHOUT VIJAYTEX" label injected above the without-column list */
+  .table td:nth-child(2)::before {
+    content: 'WITHOUT VIJAYTEX';
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #ef4444;
+    margin-bottom: 1rem;
+  }
+
+  /* "WITH VIJAYTEX" label + subtle green tint on the positive column */
+  .table td:nth-child(3)::before {
+    content: 'WITH VIJAYTEX';
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #10b981;
+    margin-bottom: 1rem;
+  }
+  .table td:nth-child(3) {
+    background: rgba(16, 185, 129, 0.03);
+  }
+
+  /* Tighten list items slightly on mobile */
+  .featureList {
+    gap: 0.75rem;
+  }
+  .featureList li {
+    font-size: 0.88rem;
+  }
+
+  /* Header — left-align on mobile */
+  .header {
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 2.5rem;
+  }
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Summary stat: horizontal layout so number + label sit side by side */
   .statCircle {
-    padding: 1.5rem;
+    width: 100%;
+    flex-direction: row;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1.25rem 1rem;
   }
   .statNumber {
     font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+  .statLabel {
+    text-align: left;
+  }
+  .summaryText h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .summaryText li {
+    font-size: 0.9rem;
+    gap: 0.75rem;
+  }
+  .summaryCard {
+    padding: 2rem 0;
+  }
+}
+
+/* Touch-friendly toggle buttons (≤ 480px) */
+@media (max-width: 480px) {
+  .controls {
+    align-items: stretch;
+    width: 100%;
+  }
+  .toggleGroup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  .toggleBtn {
+    text-align: center;
+    padding: 0.875rem 0.5rem; /* ≥44px tap height */
+    font-size: 0.75rem;
+  }
+  .inputGroup {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .costInput {
+    width: 100%;
   }
 }

@@ -181,7 +181,27 @@
 }
 
 @media (max-width: 768px) {
-  .itemHeader { gap: 1rem; }
-  .itemBody { padding-left: 2rem; }
-  .itemBodyOpen { padding-left: 2rem; }
+  .item {
+    padding: 0; /* remove default, use header padding for touch target */
+  }
+  .itemHeader {
+    gap: 1rem;
+    /* 44px minimum touch target — users tap anywhere on the header row */
+    min-height: 44px;
+    padding: 1.1rem 0;
+  }
+  .itemTitle {
+    font-size: clamp(1.05rem, 3.5vw, 1.35rem);
+  }
+  .itemBody {
+    padding-left: 2rem;
+  }
+  .itemBodyOpen {
+    padding-left: 2rem;
+  }
+  /* Larger toggle icon for touch */
+  .itemToggle {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
 }

@@ -108,3 +108,25 @@
   .inner { grid-template-columns: 1fr; gap: 3rem; }
   .row { grid-template-columns: 1fr; gap: 0; }
 }
+
+@media (max-width: 600px) {
+  /* Map iframe: reduce from 350px to prevent it consuming over 50% of viewport */
+  .addressCard iframe {
+    height: 220px;
+  }
+  /* WhatsApp CTA: full-width, thumb-friendly */
+  .whatsappBtn {
+    width: 100%;
+    justify-content: center;
+    min-height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Phone reveal button — make it visually distinct and large enough to tap */
+  .detail button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}

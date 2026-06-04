@@ -296,13 +296,20 @@
 
   .burger {
     display: flex;
+    /* 44×44px minimum touch target (Apple HIG / Google Material) */
+    min-width: 44px;
+    min-height: 44px;
+    padding: 8px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
   }
 
   .inner {
     gap: 1rem;
     padding: 1.25rem 1.5rem;
   }
-  
+
   .logoImage {
     height: 50px;
   }

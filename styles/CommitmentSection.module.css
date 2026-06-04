@@ -3,7 +3,6 @@
 .section {
   background: var(--bg-deep);
   border-top: 1px solid var(--border);
-  padding-bottom: 5rem;
 }
 
 .inner {
@@ -111,8 +110,18 @@
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  /* Left-align quote on mobile — centered long text is harder to read on narrow screens */
+  .quoteBlock {
+    text-align: left;
+    padding: 2rem 1.5rem;
   }
   .quoteText {
     font-size: 1.5rem;
+  }
+  /* Reduce card padding on mobile */
+  .card {
+    padding: 2rem 1.5rem;
   }
 }

@@ -342,25 +342,54 @@
     position: relative;
     width: 100%;
     max-width: none;
+    /* Use svh so hero is exactly the visible area — avoids iOS Safari chrome overlap */
     min-height: 100vh;
-    align-items: flex-end;
+    min-height: 100svh;
+    /* Text at top so brand name is visible immediately above the fold */
+    align-items: flex-start;
   }
   .grid {
     max-width: 100%;
   }
+  /* Heavy white fade at top (where text lives) — video shows through at bottom */
   .videoEdgeFade {
     background: linear-gradient(
       to bottom,
-      transparent 0%,
-      rgba(255, 255, 255, 0.2) 15%,
-      rgba(255, 255, 255, 0.6) 30%,
-      rgba(255, 255, 255, 0.9) 50%,
-      #FFFFFF 100%
+      rgba(255, 255, 255, 0.97) 0%,
+      rgba(255, 255, 255, 0.93) 20%,
+      rgba(255, 255, 255, 0.75) 42%,
+      rgba(255, 255, 255, 0.45) 62%,
+      rgba(255, 255, 255, 0.18) 80%,
+      transparent 100%
     );
   }
-  .textInner { padding: 5rem 1.5rem 4rem; }
+  /* Clear the navbar (≈65px) then breathe into content */
+  .textInner {
+    padding: 5.5rem 1.5rem 2.5rem;
+  }
+  /* Tighten inter-element gaps so content fits above the fold */
+  .topLabel {
+    margin-bottom: 1.5rem;
+  }
+  .brandName {
+    margin: 0 0 1.25rem 0;
+  }
+  .taglineRow {
+    margin-bottom: 1rem;
+  }
+  .subtext {
+    max-width: 100%;
+    margin-bottom: 1.75rem;
+  }
+  .ctaRow {
+    margin-bottom: 2rem;
+  }
+  .statsRow {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+  }
   .brandLine1, .brandLine2 { font-size: clamp(3rem, 10vw, 5rem); }
-  .statsRow { flex-wrap: wrap; gap: 1.5rem; }
   .stat { border-right: none; padding-right: 0; margin-right: 0; }
   .scrollHint { display: none; }
   .videoLabel { display: none; }

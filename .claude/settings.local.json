@@ -3,7 +3,9 @@
     "allow": [
       "Bash(node -e ' *)",
       "Bash(npx --prefix C:/Users/user playwright screenshot --help)",
-      "Bash(npx playwright *)"
+      "Bash(npx playwright *)",
+      "Bash(Get-ChildItem -Path \"D:\\\\anti\\\\s\\\\vijaytex\" -Recurse -Force)",
+      "Bash(Select-Object FullName)"
     ]
   }
 }

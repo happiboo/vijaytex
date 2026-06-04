@@ -123,8 +123,10 @@
 .cardImage {
   transition: transform 0.8s var(--ease-expo) !important;
 }
-.card:hover .cardImage {
-  transform: scale(1.06);
+@media (hover: hover) {
+  .card:hover .cardImage {
+    transform: scale(1.06);
+  }
 }
 .imageOverlay {
   position: absolute;
@@ -144,9 +146,11 @@
   justify-content: flex-end;
   transition: transform 0.5s var(--ease-expo), opacity 0.4s;
 }
-.card:hover .cardInner {
-  transform: translateY(-8px);
-  opacity: 0;
+@media (hover: hover) {
+  .card:hover .cardInner {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
 }
 
 .indexWrap {
@@ -225,10 +229,14 @@
   transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo);
   pointer-events: none;
 }
-.card:hover .hoverOverlay {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all;
+
+/* Only reveal overlay on true pointer-hover devices — touch devices never fire :hover */
+@media (hover: hover) {
+  .card:hover .hoverOverlay {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
 }
 .hoverGrad {
   position: absolute;
@@ -295,17 +303,32 @@
   outline-offset: -1px;
 }
 .card:focus .cardInner,
-.card:focus-within .cardInner,
-.card:active .cardInner {
+.card:focus-within .cardInner {
   transform: translateY(-8px);
   opacity: 0;
 }
 .card:focus .hoverOverlay,
-.card:focus-within .hoverOverlay,
-.card:active .hoverOverlay {
+.card:focus-within .hoverOverlay {
   opacity: 1;
   transform: translateY(0);
   pointer-events: all;
+}
+
+/* ── Touch Device Fallback ──
+   On touch screens :hover never fires, so the hoverOverlay is permanently
+   invisible. Instead keep the base card info always visible and accessible. */
+@media (hover: none) {
+  .card .cardInner {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .card .hoverOverlay {
+    display: none;
+  }
+  /* Provide a subtle active-press feedback instead */
+  .card:active {
+    opacity: 0.88;
+  }
 }
 
 /* ── Responsive ── */

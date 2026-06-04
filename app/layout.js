@@ -6,6 +6,13 @@ export const metadata = {
   description: 'Vijay Tex manufactures high-quality textile cone disks trusted by mills across India. Decades of expertise, unmatched quality assurance.',
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,    /* allow pinch-zoom — never block user zoom (accessibility) */
+  themeColor: '#FFFFFF',
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">

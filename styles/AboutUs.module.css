@@ -182,10 +182,20 @@
 
 @media (max-width: 480px) {
   .visual {
-    transform: scale(0.85);
+    width: 220px;
+    height: 220px;
+    transform: none;
     margin-bottom: 1rem;
   }
+  /* Scale rings to fit new visual size */
+  .ring1 { width: 200px; height: 200px; }
+  .ring2 { width: 134px; height: 134px; }
+  .ring3 { width: 52px;  height: 52px; }
   .stat {
     padding: 1.25rem 1rem;
+  }
+  /* Paragraph max-width removed on mobile — let text breathe */
+  .para {
+    max-width: 100%;
   }
 }

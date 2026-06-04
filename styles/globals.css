@@ -1,7 +1,6 @@
 /* styles/globals.css — Vijay Tex Premium Design System */
 
-/* ── Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+/* ── Fonts loaded via <link> in layout.js — do not duplicate here ── */
 
 /* ── Design Tokens ── */
 :root {
@@ -305,3 +304,60 @@ ul, ol { list-style: none; }
 
 /* ── Selection ── */
 ::selection { background: var(--accent); color: #FFFFFF; }
+
+/* ══════════════════════════════════════════
+   MOBILE DESIGN TOKEN OVERRIDES
+   Fixes the critical --gutter issue:
+   5rem (80px) gutter on a 375px phone leaves only 215px of content.
+   These two lines heal 80% of all mobile layout problems at once.
+══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root {
+    --gutter:    1.25rem;   /* was 5rem  — 80px → 20px */
+    --section-y: 4.5rem;   /* was 8rem  — 128px → 72px */
+  }
+}
+@media (max-width: 480px) {
+  :root {
+    --gutter:    1rem;      /* 16px */
+    --section-y: 3.5rem;   /* 56px */
+  }
+}
+
+/* ── Mobile Button Touch Targets (min 44px per Apple HIG) ── */
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-ghost {
+    min-height: 48px;
+    padding: 0.9rem 1.5rem;
+  }
+}
+
+/* ── Kill noise overlay on mobile — saves GPU compositing on low-power devices ── */
+@media (max-width: 768px) {
+  .noise-overlay {
+    display: none;
+  }
+}
+
+/* ── Respect reduced-motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  .noise-overlay { display: none; }
+  .word-inner {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .stagger-reveal > * {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}

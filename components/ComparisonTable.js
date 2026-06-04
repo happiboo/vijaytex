@@ -8,7 +8,7 @@ export default function ComparisonTable() {
   const [viewMode, setViewMode] = useState('percentage'); // 'percentage' | 'cost'
   const [yarnCost, setYarnCost] = useState(300); // Cost per kg
   const [animatedSavings, setAnimatedSavings] = useState(0);
-  const [productionTons, setProductionTons] = useState(1);
+  const [productionTons, setProductionTons] = useState('');
 
   // Animate the 5% number when it comes into view
   useEffect(() => {
@@ -59,12 +59,13 @@ export default function ComparisonTable() {
         </div>
 
         <div className={styles.calculateContainer}>
+          <h3 className={styles.calcTitle}>Calculate</h3>
           <div className={styles.calcInputWrapper}>
             <input 
               type="number" 
-              placeholder="Calculate"
-              value={productionTons === 1 ? '' : productionTons}
-              onChange={(e) => setProductionTons(Number(e.target.value))}
+              placeholder="Enter no of tons"
+              value={productionTons}
+              onChange={(e) => setProductionTons(e.target.value === '' ? '' : Math.max(1, Number(e.target.value)))}
               className={styles.calcInput}
               min="1"
             />
@@ -95,7 +96,7 @@ export default function ComparisonTable() {
                 <input
                   type="number"
                   value={yarnCost}
-                  onChange={(e) => setYarnCost(Number(e.target.value))}
+                  onChange={(e) => setYarnCost(e.target.value === '' ? '' : Math.max(0, Number(e.target.value)))}
                   className={styles.costInput}
                 />
               </div>

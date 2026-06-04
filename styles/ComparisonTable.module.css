@@ -35,9 +35,19 @@
 
 .calculateContainer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 2rem;
   width: 100%;
+  gap: 0.75rem;
+}
+
+.calcTitle {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--text-primary, #111827);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .calcInputWrapper {

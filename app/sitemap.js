@@ -1,6 +1,6 @@
 export default function sitemap() {
   // Replace with your actual domain if different
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.vijaytex.com';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.vijaytexconeinserts.com';
 
   return [
     {

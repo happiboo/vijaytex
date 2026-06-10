@@ -90,7 +90,7 @@ export default function HeroSection() {
 
           {/* Subtext */}
           <p className={styles.subtext}>
-            Manufacturers of textile cone accessories trusted by 150+ mills across India and overseas.
+            Manufacturers of premium cone disks, cone inserts, cone washers &amp; edge protectors for yarn cones and paper cones — trusted by 150+ mills across India and overseas.
           </p>
 
           {/* CTAs */}

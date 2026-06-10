@@ -4,34 +4,57 @@ import '../styles/globals.css';
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.vijaytex.com'),
   title: {
-    default: 'Vijay Tex | Precision Engineered Cone Disks',
+    default: 'Vijay Tex | Cone Disks, Cone Inserts & Cone Washers for Yarn & Paper Cones',
     template: '%s | Vijay Tex',
   },
-  description: 'Vijay Tex manufactures high-quality textile cone disks trusted by spinning mills across India. Decades of expertise, unmatched quality assurance.',
-  keywords: ['Textile Cone Disks', 'Spinning Mills', 'Vijay Tex', 'Cone Disks', 'Textile Machinery Parts', 'India'],
+  description:
+    'Vijay Tex manufactures premium cone disks, cone inserts, and cone washers for paper cones and yarn cones. Our paper cone disks, yarn cone inserts, yarn cone washers, and cone edge protectors are trusted by 150+ spinning mills across India. ESTD 1996.',
+  keywords: [
+    'cone disk',
+    'cone insert',
+    'cone washer',
+    'paper cone disk',
+    'paper cone washer',
+    'paper cone inserts',
+    'yarn cone disk',
+    'yarn cone inserts',
+    'yarn cone washer',
+    'yarn cone edge protector',
+    'paper cone edge protectors',
+    'textile cone disks',
+    'spinning mill cone accessories',
+    'PPCP cone disk',
+    'cone disk manufacturer India',
+    'yarn cone accessories',
+    'paper cone accessories',
+    'Vijay Tex',
+    'Coimbatore textile parts',
+  ],
   authors: [{ name: 'Vijay Tex' }],
   creator: 'Vijay Tex',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: '/',
-    title: 'Vijay Tex | Precision Engineered Cone Disks',
-    description: 'High-quality textile cone disks trusted by spinning mills across India. Discover unmatched quality and decades of expertise with Vijay Tex.',
+    title: 'Vijay Tex | Cone Disks, Cone Inserts, Cone Washers & Edge Protectors',
+    description:
+      'Premium cone disks, cone inserts, cone washers and edge protectors for yarn cones and paper cones. Trusted by 150+ spinning mills across India since 1996.',
     siteName: 'Vijay Tex',
     images: [
       {
-        url: '/og-image.jpg', // Recommend adding an og-image.jpg to your public folder
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Vijay Tex - Precision Engineered Cone Disks',
+        alt: 'Vijay Tex — Cone Disks, Cone Inserts & Cone Washers for Yarn and Paper Cones',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vijay Tex | Precision Engineered Cone Disks',
-    description: 'High-quality textile cone disks trusted by spinning mills across India.',
-    images: ['/og-image.jpg'], // Recommend adding an og-image.jpg to your public folder
+    title: 'Vijay Tex | Cone Disks, Cone Inserts & Cone Washers',
+    description:
+      'Premium paper cone disks, yarn cone inserts, cone washers & edge protectors. Trusted by 150+ mills across India.',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,

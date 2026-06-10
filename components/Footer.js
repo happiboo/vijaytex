@@ -41,6 +41,9 @@ export default function Footer() {
             TRUST - COMMITMENT - RESPONSIBILITY
           </p>
           <p className={styles.estd}>ESTD. 1996 · Coimbatore, Tamil Nadu</p>
+          <p className={styles.estd} style={{ marginTop: '0.25rem', opacity: 0.6, fontSize: '0.7rem' }}>
+            Manufacturers of cone disks, cone inserts, cone washers &amp; edge protectors for yarn cones and paper cones.
+          </p>
         </div>
 
         {/* Center — nav */}

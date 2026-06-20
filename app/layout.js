@@ -1,14 +1,39 @@
 /* app/layout.js */
+import { Cormorant_Garamond, Inter, JetBrains_Mono } from 'next/font/google';
 import '../styles/globals.css';
 
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-body',
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
+  display: 'swap',
+});
+
+const base = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.vijaytexconeinserts.com';
+
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.vijaytex.com'),
+  metadataBase: new URL(base),
   title: {
-    default: 'Vijay Tex | Cone Disks, Cone Inserts & Cone Washers for Yarn & Paper Cones',
+    default: 'Vijay Tex | Cone Disks & Inserts for Spinning Mills',
     template: '%s | Vijay Tex',
   },
   description:
-    'Vijay Tex manufactures premium cone disks, cone inserts, and cone washers for paper cones and yarn cones. Our paper cone disks, yarn cone inserts, yarn cone washers, and cone edge protectors are trusted by 150+ spinning mills across India. ESTD 1996.',
+    'PPCP cone disks, inserts & washers for spinning mills. Trusted by 150+ mills across India. Vijay Tex, Coimbatore since 1996.',
   keywords: [
     'cone disk',
     'cone insert',
@@ -38,24 +63,20 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: '/',
-    /* og:title — punchy for social shares, includes trust signal */
+    url: base,
     title: 'Vijay Tex — Trusted by 150+ Spinning Mills Since 1996',
-    /* og:description — benefit-led, specific, no fluff */
     description:
       'Manufacturer of PPCP cone disks, cone inserts, cone washers, PP plastic twine & yarn cone covers. Precision-made in Coimbatore for Ring frame, Airjet & Rotor spinning systems.',
     siteName: 'Vijay Tex',
-    /* No images key — opengraph-image.js in /app auto-generates the card at 1200×630 */
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Vijay Tex — Cone Disks & Textile Mill Accessories | Est. 1996',
     description:
       'PPCP cone disks, yarn cone covers & PP twine for spinning mills. 150+ mills served. Dispatched within 24 hours. Coimbatore, India.',
-    /* No images key — Next.js pulls from opengraph-image.js automatically */
   },
   alternates: {
-    canonical: '/',
+    canonical: base,
   },
   icons: {
     icon: '/logo.png',
@@ -78,20 +99,17 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 5,    /* allow pinch-zoom — never block user zoom (accessibility) */
+  maximumScale: 5,
   themeColor: '#FFFFFF',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary" />
       </head>
       <body>{children}</body>

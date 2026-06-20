@@ -339,6 +339,7 @@
     position: relative;
     width: 100%;
     max-width: none;
+    min-width: 0; /* override desktop min-width: 600px to prevent horizontal overflow */
     /* Use svh so hero is exactly the visible area — avoids iOS Safari chrome overlap */
     min-height: 100vh;
     min-height: 100svh;
@@ -415,8 +416,10 @@
     align-items: flex-start;
     gap: 1rem;
   }
-  /* Tighten tagline on very small screens */
   .tagline {
     font-size: 1.1rem;
   }
+  /* Ensure minimum 12px font on small screens (mobile friendliness) */
+  .topLabel  { font-size: 0.75rem; }
+  .statLabel { font-size: 0.75rem; }
 }

@@ -51,6 +51,7 @@ export default function HeroSection() {
           muted
           loop
           playsInline
+          preload="metadata"
         />
         {/* Thin left-edge fade so it blends into text side */}
         <div className={styles.videoEdgeFade} />
@@ -78,6 +79,7 @@ export default function HeroSection() {
             <span className={styles.brandLine2}>
               <em className={styles.brandItalic}>TEX</em>
             </span>
+            <span className="sr-only"> — Cone Disk &amp; Insert Manufacturers, Coimbatore</span>
           </h1>
 
           {/* Tagline */}

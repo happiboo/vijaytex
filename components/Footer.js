@@ -1,13 +1,30 @@
 /* components/Footer.js */
+'use client';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import styles from '../styles/Footer.module.css';
-import MagnetDots from './MagnetDots';
+
+/* Deferred — the canvas init() + getImageData() is a long task; load after hydration */
+const MagnetDots = dynamic(() => import('./MagnetDots'), { ssr: false });
 
 const links = [
   { label: 'products', href: '#products' },
   { label: 'why us',   href: '#why-us'   },
   { label: 'about',    href: '#about'    },
   { label: 'contact',  href: '#contact'  },
+];
+
+/*
+ * Social links — add real profile URLs when accounts are created.
+ * WhatsApp is pre-filled from the contact number.
+ * Uncomment + replace # with actual profile URLs for LinkedIn/Facebook/YouTube.
+ */
+const socialLinks = [
+  { label: 'WhatsApp', href: 'https://wa.me/919443059101', abbr: 'WA' },
+  // { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/vijay-tex', abbr: 'in' },
+  // { label: 'Facebook',  href: 'https://www.facebook.com/vijaytex',          abbr: 'f'  },
+  // { label: 'YouTube',   href: 'https://www.youtube.com/@vijaytex',           abbr: 'YT' },
+  // { label: 'X',         href: 'https://x.com/vijaytex',                     abbr: 'X'  },
 ];
 
 export default function Footer() {
@@ -44,6 +61,24 @@ export default function Footer() {
           <p className={styles.estd} style={{ marginTop: '0.25rem', opacity: 0.6, fontSize: '0.7rem' }}>
             Manufacturers of cone disks, cone inserts, cone washers &amp; edge protectors for yarn cones and paper cones.
           </p>
+
+          {/* Social links */}
+          {socialLinks.length > 0 && (
+            <div className={styles.social} aria-label="Social media links">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  className={styles.socialLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Vijay Tex on ${s.label}`}
+                >
+                  {s.abbr}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Center — nav */}

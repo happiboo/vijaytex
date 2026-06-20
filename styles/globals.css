@@ -19,10 +19,10 @@
   --border:         rgba(17, 24, 39, 0.09);
   --border-accent:  rgba(29, 78, 216, 0.18);
 
-  /* Typography */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'Inter', system-ui, sans-serif;
-  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+  /* Typography — fallback stacks; overridden by next/font CSS variables on <html> */
+  --font-display: Georgia, serif;
+  --font-body:    system-ui, -apple-system, sans-serif;
+  --font-mono:    'Courier New', Courier, monospace;
 
   /* Spacing */
   --section-y: 8rem;
@@ -292,6 +292,19 @@ ul, ol { list-style: none; }
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-dim);
+}
+
+/* ── Screen-reader only — visible to assistive tech & search engines, hidden visually ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* ── Horizontal rule ── */

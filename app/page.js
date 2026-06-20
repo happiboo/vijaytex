@@ -11,22 +11,27 @@ import ContactUs from '../components/ContactUs';
 import Footer from '../components/Footer';
 
 /* ── JSON-LD Structured Data ── */
-const base = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.vijaytex.com';
+const base = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.vijaytexconeinserts.com';
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@graph': [
-    /* Organisation + LocalBusiness merged — one canonical entity */
+    /* LocalBusiness — primary entity (LocalBusiness already extends Organization) */
     {
-      '@type': ['Organization', 'LocalBusiness'],
+      '@type': 'LocalBusiness',
       '@id': `${base}/#organization`,
       name: 'Vijay Tex',
       url: base,
+      telephone: '+91-94430-59101',
+      priceRange: '₹₹',
       logo: {
         '@type': 'ImageObject',
         url: `${base}/logo.png`,
       },
-      image: `${base}/logo.png`,
+      image: {
+        '@type': 'ImageObject',
+        url: `${base}/logo.png`,
+      },
       description:
         'Vijay Tex is a leading manufacturer of cone disks, cone inserts, cone washers, cone edge protectors, PP plastic twine, and yarn cone covers for textile spinning mills. Established in 1996, Coimbatore, Tamil Nadu, India.',
       foundingDate: '1996',
@@ -75,9 +80,9 @@ const jsonLd = {
         'Cone Disks', 'Cone Inserts', 'Cone Washers', 'Yarn Cone Covers',
         'PP Plastic Twine', 'Textile Cone Accessories', 'Spinning Mill Supplies',
       ],
-      /* Add your verified profiles below */
       sameAs: [
-        /* 'https://www.indiamart.com/vijay-tex/',  */
+        /* Add verified profile URLs below when available, e.g.: */
+        /* 'https://www.indiamart.com/vijay-tex/', */
         /* 'https://www.linkedin.com/company/vijay-tex/', */
       ],
     },
@@ -87,13 +92,17 @@ const jsonLd = {
       '@type': 'Product',
       '@id': `${base}/#product-cone-disc`,
       name: 'Yarn Cone Disc',
+      url: base,
       description:
         'Precision-moulded PPCP cone disk for 3°, 4° and 5° yarn cones and paper cones. Functions as a cone insert, cone washer, and yarn cone edge protector in one unit. Made from 60% recycled plastic, 30% virgin plastic, 10% hardening agents.',
       brand: { '@type': 'Brand', name: 'Vijay Tex' },
       manufacturer: { '@id': `${base}/#organization` },
       category: 'Textile Cone Accessories',
       material: 'PPCP (Polypropylene Copolymer) — 60% recycled, 30% virgin, 10% hardening agents',
-      image: `${base}/products/cone-disc.png`,
+      image: {
+        '@type': 'ImageObject',
+        url: `${base}/products/cone-disc.png`,
+      },
       keywords:
         'cone disk, cone insert, cone washer, paper cone disk, paper cone washer, paper cone inserts, yarn cone disk, yarn cone inserts, yarn cone washer, yarn cone edge protector, paper cone edge protectors, PPCP cone disk',
       additionalProperty: [
@@ -102,7 +111,6 @@ const jsonLd = {
       ],
       offers: {
         '@type': 'Offer',
-        priceCurrency: 'INR',
         availability: 'https://schema.org/InStock',
         seller: { '@id': `${base}/#organization` },
         areaServed: 'IN',
@@ -114,13 +122,17 @@ const jsonLd = {
       '@type': 'Product',
       '@id': `${base}/#product-pp-twine`,
       name: 'PP Plastic Twine',
+      url: base,
       description:
         'Premium virgin-grade polypropylene twine for textile spinning mills. Available at 1000, 1500, and 2000 meters per kg for superior meter-per-kg value.',
       brand: { '@type': 'Brand', name: 'Vijay Tex' },
       manufacturer: { '@id': `${base}/#organization` },
       category: 'Textile Accessories',
       material: 'Virgin Grade Polypropylene (PP)',
-      image: `${base}/products/twine.jpg`,
+      image: {
+        '@type': 'ImageObject',
+        url: `${base}/products/twine.jpg`,
+      },
       keywords: 'PP plastic twine, polypropylene twine, textile twine, spinning mill twine, yarn twine',
       additionalProperty: [
         { '@type': 'PropertyValue', name: 'Available Lengths', value: '1000 m/kg, 1500 m/kg, 2000 m/kg' },
@@ -128,7 +140,6 @@ const jsonLd = {
       ],
       offers: {
         '@type': 'Offer',
-        priceCurrency: 'INR',
         availability: 'https://schema.org/InStock',
         seller: { '@id': `${base}/#organization` },
         areaServed: 'IN',
@@ -140,13 +151,17 @@ const jsonLd = {
       '@type': 'Product',
       '@id': `${base}/#product-cone-cover`,
       name: 'Yarn Cone Cover',
+      url: base,
       description:
         'Yarn cone covers made from PP, HM-HDPE, and LDPE for maximum coverage per kg. Available in 20g, 30g, and 40g variants. Manufactured in Coimbatore, Tamil Nadu.',
       brand: { '@type': 'Brand', name: 'Vijay Tex' },
       manufacturer: { '@id': `${base}/#organization` },
       category: 'Textile Cone Accessories',
       material: 'PP, HM-HDPE, LDPE',
-      image: `${base}/products/cone-cover.jpg`,
+      image: {
+        '@type': 'ImageObject',
+        url: `${base}/products/cone-cover.jpg`,
+      },
       keywords: 'yarn cone cover, cone cover, PP cone cover, HDPE cone cover, LDPE cone cover, textile cone cover, Coimbatore cone cover',
       additionalProperty: [
         { '@type': 'PropertyValue', name: 'Available Weights', value: '20g, 30g, 40g' },
@@ -154,7 +169,6 @@ const jsonLd = {
       ],
       offers: {
         '@type': 'Offer',
-        priceCurrency: 'INR',
         availability: 'https://schema.org/InStock',
         seller: { '@id': `${base}/#organization` },
         areaServed: 'IN',

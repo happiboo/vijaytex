@@ -8,13 +8,14 @@ export default function MagnetDots() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    
+
     let animationFrameId;
     let width = 0;
     let height = 0;
     let particles = [];
     const magnetRadius = 140;
-    
+    let started = false;
+
     let mouse = { x: -1000, y: -1000 };
 
     const init = () => {
@@ -145,14 +146,25 @@ export default function MagnetDots() {
       init();
     };
     
-    window.addEventListener('resize', onResize);
-    window.addEventListener('mousemove', onMouseMove);
-    document.documentElement.addEventListener('mouseleave', onMouseLeave);
-    
-    init();
-    draw();
-    
+    const startAnimation = () => {
+      if (started) return;
+      started = true;
+      window.addEventListener('resize', onResize);
+      window.addEventListener('mousemove', onMouseMove);
+      document.documentElement.addEventListener('mouseleave', onMouseLeave);
+      init();
+      draw();
+    };
+
+    /* Defer heavy init + getImageData until canvas scrolls into view */
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) startAnimation(); },
+      { threshold: 0.1 }
+    );
+    observer.observe(canvas);
+
     return () => {
+      observer.disconnect();
       window.removeEventListener('resize', onResize);
       window.removeEventListener('mousemove', onMouseMove);
       document.documentElement.removeEventListener('mouseleave', onMouseLeave);

@@ -47,6 +47,7 @@ export default function HeroSection() {
           ref={videoRef}
           className={styles.video}
           src="/hero-pingpong.mp4"
+          poster="/products/cone-disc.png"
           autoPlay
           muted
           loop

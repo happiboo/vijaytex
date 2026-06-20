@@ -60,6 +60,8 @@ export const metadata = {
   ],
   authors: [{ name: 'Vijay Tex' }],
   creator: 'Vijay Tex',
+  publisher: 'Vijay Tex',
+  category: 'manufacturing',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -68,21 +70,26 @@ export const metadata = {
     description:
       'Manufacturer of PPCP cone disks, cone inserts, cone washers, PP plastic twine & yarn cone covers. Precision-made in Coimbatore for Ring frame, Airjet & Rotor spinning systems.',
     siteName: 'Vijay Tex',
+    images: [
+      {
+        url: `${base}/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: 'Vijay Tex — Cone Disks, Cone Inserts & Cone Washers for Textile Spinning Mills',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Vijay Tex — Cone Disks & Textile Mill Accessories | Est. 1996',
     description:
       'PPCP cone disks, yarn cone covers & PP twine for spinning mills. 150+ mills served. Dispatched within 24 hours. Coimbatore, India.',
+    images: [`${base}/opengraph-image`],
   },
   alternates: {
     canonical: base,
   },
-  icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
-  },
+  manifest: '/site.webmanifest',
   robots: {
     index: true,
     follow: true,
@@ -110,6 +117,9 @@ export default function RootLayout({ children }) {
       className={`${cormorant.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary" />
       </head>
       <body>{children}</body>

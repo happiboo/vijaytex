@@ -76,13 +76,14 @@ export default function ContactUs() {
         <div className={`reveal-right ${styles.rightCol}`} ref={rightRef}>
           <div className={styles.addressCard}>
             <h3 className={styles.cardTitle}>Headquarters</h3>
-            <iframe 
-              src="https://maps.google.com/maps?q=11.058079719543457,77.01194763183594&t=&z=17&ie=UTF8&iwloc=&output=embed" 
-              width="100%" 
-              height="350" 
-              style={{ border: 0, borderRadius: '8px', filter: 'grayscale(0.3) contrast(1.1)' }} 
-              allowFullScreen="" 
-              loading="lazy" 
+            <iframe
+              title="Vijay Tex location — No.12, V.R.R. Nagar, Vilankurichi, Coimbatore"
+              src="https://maps.google.com/maps?q=11.058079719543457,77.01194763183594&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="350"
+              style={{ border: 0, borderRadius: '8px', filter: 'grayscale(0.3) contrast(1.1)' }}
+              allowFullScreen=""
+              loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
             

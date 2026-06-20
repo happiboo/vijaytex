@@ -22,7 +22,7 @@ const jsonLd = {
       '@id': `${base}/#organization`,
       name: 'Vijay Tex',
       url: base,
-      telephone: '+91-94430-59101',
+      telephone: '+91 94430 59101',
       priceRange: '₹₹',
       logo: {
         '@type': 'ImageObject',
@@ -51,14 +51,14 @@ const jsonLd = {
       contactPoint: [
         {
           '@type': 'ContactPoint',
-          telephone: '+91-94430-59101',
+          telephone: '+91 94430 59101',
           contactType: 'sales',
           availableLanguage: ['English', 'Tamil'],
           areaServed: 'IN',
         },
         {
           '@type': 'ContactPoint',
-          telephone: '+91-94421-55833',
+          telephone: '+91 94421 55833',
           contactType: 'sales',
           availableLanguage: ['English', 'Tamil'],
           areaServed: 'IN',

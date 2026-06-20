@@ -14,13 +14,13 @@ const commitments = [
     id: '02',
     key: 'Emergency Stocking & Supply Assurance',
     title: 'Up to 2 Months Your Volume',
-    desc: 'To ensure uninterrupted supply for our customers, Vijay Tex follows a proactive pre-stocking mechanism.Once regular order volumes are established, we maintain up to 2 months of ready stock based on buyer consumption patterns.',
+    desc: 'To ensure uninterrupted supply for our customers, Vijay Tex follows a proactive pre-stocking mechanism. Once regular order volumes are established, we maintain up to 2 months of ready stock based on buyer consumption patterns.',
   },
   {
     id: '03',
     key: 'Multiple Product Segments for Every Requirement',
     title: 'Premium, Mid-range & Budget-friendly solutions',
-    desc: 'We offer cone disk solutions across multiple pricing categories based on mill requirements and operational preferences.we offer Budget Segment,Mid Segment,Premium Segment.This allows customers to select products based on their requirment.',
+    desc: 'We offer cone disk solutions across multiple pricing categories based on mill requirements and operational preferences — Budget, Mid, and Premium segments — allowing customers to select products based on their requirement.',
   },
 ];
 

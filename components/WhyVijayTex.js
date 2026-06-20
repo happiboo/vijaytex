@@ -35,7 +35,7 @@ const features = [
     title: 'Mill-Tested Durability',
     content: (
       <>
-        <p>Trusted by textile mills across india and globe for their  Ring frame,airjet spinning (vortex spinning),Rotor Spinning (OE mills).</p>
+        <p>Trusted by textile mills across India and globally for Ring frame, Airjet/Vortex spinning, and Rotor (OE) spinning systems.</p>
       </>
     ),
   },

@@ -415,4 +415,8 @@
     align-items: flex-start;
     gap: 1rem;
   }
+  /* Tighten tagline on very small screens */
+  .tagline {
+    font-size: 1.1rem;
+  }
 }

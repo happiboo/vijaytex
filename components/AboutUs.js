@@ -5,7 +5,7 @@ import styles from '../styles/AboutUs.module.css';
 
 const stats = [
   { value: '1996', label: 'Year Founded', desc: 'Proprietorship' },
-  { value: '28+', label: 'Years in Industry', desc: 'Trust built over decades' },
+  { value: '30+', label: 'Years in Industry', desc: 'Trust built over decades' },
   { value: '150+', label: 'mills supplied', desc: 'across india and in international markets' },
   { value: 'CBE', label: 'Manufacturing Base', desc: 'Coimbatore, Tamil Nadu' },
 ];
@@ -48,10 +48,10 @@ export default function AboutUs() {
           </h2>
 
           <p className={styles.para}>
-            VijayTex is a Coimbatore-based manufacturer of plastic cone covers, cone inserts/disks and plastic Twines. Established in 1996, serving textile mills with precision-made textile accessories all across india and in international markets
+            VijayTex is a Coimbatore-based manufacturer of plastic cone covers, cone inserts/disks and plastic twines. Established in 1996, serving textile mills with precision-made textile accessories all across India and in international markets.
           </p>
           <p className={styles.para}>
-            At VijayTex, We never speak insted our products speak for themselves.most of our clients have stood with us for over a decade.thanks to the quality and reliability of our products.
+            At VijayTex, our products speak for themselves. Most of our clients have stood with us for over a decade, thanks to the quality and reliability of our products.
           </p>
 
           <div className={styles.location}>
@@ -72,7 +72,7 @@ export default function AboutUs() {
             <div className={styles.centerDot} />
             <div className={styles.annotation1}>Recyclable</div>
             <div className={styles.annotation2}>Sustainable and ecofriendly</div>
-            <div className={styles.annotation3}>PPCP meterial</div>
+            <div className={styles.annotation3}>PPCP material</div>
           </div>
 
           {/* Stats */}

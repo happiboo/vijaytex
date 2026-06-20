@@ -27,8 +27,11 @@ export const metadata = {
     'cone disk manufacturer India',
     'yarn cone accessories',
     'paper cone accessories',
+    'PP plastic twine',
+    'yarn cone cover',
     'Vijay Tex',
     'Coimbatore textile parts',
+    'cone disk manufacturer Coimbatore',
   ],
   authors: [{ name: 'Vijay Tex' }],
   creator: 'Vijay Tex',
@@ -36,25 +39,28 @@ export const metadata = {
     type: 'website',
     locale: 'en_IN',
     url: '/',
-    title: 'Vijay Tex | Cone Disks, Cone Inserts, Cone Washers & Edge Protectors',
+    /* og:title — punchy for social shares, includes trust signal */
+    title: 'Vijay Tex — Trusted by 150+ Spinning Mills Since 1996',
+    /* og:description — benefit-led, specific, no fluff */
     description:
-      'Premium cone disks, cone inserts, cone washers and edge protectors for yarn cones and paper cones. Trusted by 150+ spinning mills across India since 1996.',
+      'Manufacturer of PPCP cone disks, cone inserts, cone washers, PP plastic twine & yarn cone covers. Precision-made in Coimbatore for Ring frame, Airjet & Rotor spinning systems.',
     siteName: 'Vijay Tex',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Vijay Tex — Cone Disks, Cone Inserts & Cone Washers for Yarn and Paper Cones',
-      },
-    ],
+    /* No images key — opengraph-image.js in /app auto-generates the card at 1200×630 */
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vijay Tex | Cone Disks, Cone Inserts & Cone Washers',
+    title: 'Vijay Tex — Cone Disks & Textile Mill Accessories | Est. 1996',
     description:
-      'Premium paper cone disks, yarn cone inserts, cone washers & edge protectors. Trusted by 150+ mills across India.',
-    images: ['/og-image.jpg'],
+      'PPCP cone disks, yarn cone covers & PP twine for spinning mills. 150+ mills served. Dispatched within 24 hours. Coimbatore, India.',
+    /* No images key — Next.js pulls from opengraph-image.js automatically */
+  },
+  alternates: {
+    canonical: '/',
+  },
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
   robots: {
     index: true,
@@ -86,6 +92,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
           rel="stylesheet"
         />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable site summary" />
       </head>
       <body>{children}</body>
     </html>

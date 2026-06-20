@@ -12,7 +12,7 @@ const pillars = [
   {
     step: '2',
     title: 'Recycle',
-    desc: 'Materials are shredded into granules, processed and reused for manufacturing new products. (only mixed upto 20% so quality is never compramised)',
+    desc: 'Materials are shredded into granules, processed and reused for manufacturing new products. (only mixed up to 20% so quality is never compromised)',
   },
   {
     step: '3',

@@ -48,6 +48,12 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* Offset fixed navbar so anchor jumps don't land under it */
+  scroll-padding-top: 80px;
+}
+
+@media (max-width: 900px) {
+  html { scroll-padding-top: 65px; }
 }
 
 body {
@@ -342,6 +348,7 @@ ul, ol { list-style: none; }
 
 /* ── Respect reduced-motion preference ── */
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   .noise-overlay { display: none; }
   .word-inner {
     transition: none;

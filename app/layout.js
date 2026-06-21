@@ -62,6 +62,9 @@ export const metadata = {
   creator: 'Vijay Tex',
   publisher: 'Vijay Tex',
   category: 'manufacturing',
+  verification: {
+    google: 'tsBYmFz16DMguNO5ekcpykIJzkNV3rSe3H0dPwVMMw8',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',

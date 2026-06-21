@@ -90,11 +90,13 @@ export const metadata = {
     canonical: base,
   },
   icons: {
+    shortcut: '/favicon.ico',
     icon: [
-      { url: '/icon.png', type: 'image/png' },
+      { url: '/favicon.ico', sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
+      { url: '/icon.png', sizes: '96x96', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-icon.png', sizes: '96x96', type: 'image/png' },
     ],
   },
   manifest: '/site.webmanifest',

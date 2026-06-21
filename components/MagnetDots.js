@@ -36,7 +36,7 @@ export default function MagnetDots() {
       
       tCtx.fillStyle = 'white';
       const fontSize = Math.min(tWidth * 0.11, 110);
-      tCtx.font = `500 ${fontSize}px 'Cormorant Garamond', Georgia, serif`;
+      tCtx.font = `300 ${fontSize}px 'Cormorant Garamond', Georgia, serif`;
       tCtx.textAlign = 'center';
       tCtx.textBaseline = 'middle';
       const textY = tHeight - 190; 
@@ -146,12 +146,13 @@ export default function MagnetDots() {
       init();
     };
     
-    const startAnimation = () => {
+    const startAnimation = async () => {
       if (started) return;
       started = true;
       window.addEventListener('resize', onResize);
       window.addEventListener('mousemove', onMouseMove);
       document.documentElement.addEventListener('mouseleave', onMouseLeave);
+      await document.fonts.ready;
       init();
       draw();
     };

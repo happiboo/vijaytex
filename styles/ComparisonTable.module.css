@@ -45,6 +45,7 @@
 .calcTitle {
   font-family: var(--font-display);
   font-size: 1.2rem;
+  font-weight: 300;
   color: var(--text-primary, #111827);
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -225,6 +226,7 @@
 .labelCard {
   font-family: var(--font-display);
   font-size: 1.5rem;
+  font-weight: 300;
   color: var(--text-primary);
 }
 
@@ -303,6 +305,7 @@
 .summaryText h3 {
   font-family: var(--font-display);
   font-size: 2rem;
+  font-weight: 300;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
 }
@@ -343,6 +346,7 @@
 .statNumber {
   font-family: var(--font-display);
   font-size: 3.5rem;
+  font-weight: 300;
   color: var(--text-primary);
   line-height: 1;
   margin-bottom: 0.5rem;

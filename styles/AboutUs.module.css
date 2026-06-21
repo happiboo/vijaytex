@@ -140,7 +140,7 @@
 .statNum {
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.5vw, 2.8rem);
-  font-weight: 500;
+  font-weight: 300;
   color: var(--text-primary);
   line-height: 1;
   letter-spacing: -0.02em;

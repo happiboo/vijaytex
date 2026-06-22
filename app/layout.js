@@ -95,7 +95,9 @@ export const metadata = {
   icons: {
     shortcut: '/favicon.ico',
     icon: [
-      { url: '/favicon.ico', sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
+      { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' },
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
       { url: '/icon.png', sizes: '96x96', type: 'image/png' },
     ],
     apple: [
